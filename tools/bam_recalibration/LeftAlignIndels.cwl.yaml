@@ -53,13 +53,13 @@ outputs:
   - id: left_aligned_bam
     type: File
     outputBinding:
-      glob: $(inputs.input_bam_path.path.slice(0,-4) + '.left_aligned.bam')
+      glob: $(inputs.input_bam_path.path.replace(/^.*[\\\/]/, '').replace(/\.[^/.]+$/, '') + '.left_aligned.bam')
     secondaryFiles:
       - "^.bai"
 
 baseCommand: java
 arguments:
-  - valueFrom: $(inputs.input_bam_path.path.slice(0,-4) + '.left_aligned.bam')
+  - valueFrom: $(inputs.input_bam_path.path.replace(/^.*[\\\/]/, '').replace(/\.[^/.]+$/, '') + '.left_aligned.bam')
     position: 6
     prefix: "-o"
 
