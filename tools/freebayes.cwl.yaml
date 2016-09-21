@@ -27,7 +27,7 @@ inputs:
     secondaryFiles:
       - "^.bai"
   - id: interval_file_path
-    type: [File,"null"]
+    type: ["null", File]
     inputBinding:
       position: 3
       prefix: "--targets"
