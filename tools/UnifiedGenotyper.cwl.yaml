@@ -40,7 +40,7 @@ inputs:
       - "^.dict"
       - ".fai"
   - id: interval_file_path
-    type: File
+    type: File?
     inputBinding:
       position: 6
       prefix: "-L"
