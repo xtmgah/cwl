@@ -57,7 +57,7 @@ arguments:
   - valueFrom: \'QUAL > 20.0\'
     position: 8
     prefix: -select
-  - valueFrom: true
+  - valueFrom: "true"
     position: 7
     prefix: -ef
 
