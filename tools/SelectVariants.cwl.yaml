@@ -26,8 +26,6 @@ inputs:
     inputBinding:
       position: 4
       prefix: "--variant"
-    secondaryFiles:
-      - "^.bai"
   - id: reference_fasta_path
     type: File
     inputBinding:
