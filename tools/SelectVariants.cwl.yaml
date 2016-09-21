@@ -58,7 +58,7 @@ arguments:
     position: 8
     prefix: -select
   - valueFrom: -ef
-    shellQuote: false
+    position: 7
 
 description: |
     This tool uses a Bayesian genotype likelihood model to estimate simultaneously the most likely genotypes and allele frequency in a population of N samples, emitting a genotype for each sample. The system can either emit just the variant sites or complete genotypes (which includes homozygous reference calls) satisfying some phred-scaled confidence value.
