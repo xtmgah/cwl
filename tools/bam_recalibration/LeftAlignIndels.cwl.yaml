@@ -21,18 +21,6 @@ inputs:
     inputBinding:
       position: 1
       shellQuote: false
-  - id: gatk_jar_path
-    type: string
-    default: "/home/ubuntu/tools/GenomeAnalysisTK.jar"
-    inputBinding:
-      position: 2
-      prefix: "-jar"
-  - id: gatk_tool
-    type: string
-    default: "LeftAlignIndels"
-    inputBinding:
-      position: 3
-      prefix: "-T"
   - id: input_bam_path
     type: File
     inputBinding:
@@ -59,6 +47,12 @@ outputs:
 
 baseCommand: java
 arguments:
+  - valueFrom: /home/ubuntu/tools/GenomeAnalysisTK.jar
+    position: 2
+    prefix: -jar
+  - valueFrom: LeftAlignIndels
+    position: 3
+    prefix: -T
   - valueFrom: $(inputs.input_bam_path.path.replace(/^.*[\\\/]/, '').replace(/\.[^/.]+$/, '') + '.left_aligned.bam')
     position: 6
     prefix: "-o"
