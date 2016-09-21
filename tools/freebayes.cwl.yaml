@@ -27,7 +27,7 @@ inputs:
     secondaryFiles:
       - "^.bai"
   - id: interval_file_path
-    type: File
+    type: [File,"null"]
     inputBinding:
       position: 3
       prefix: "--targets"
@@ -48,6 +48,6 @@ arguments:
   - valueFrom: "6"
     position: 4
     prefix: "--use-best-n-alleles"
-    
+
 description: |
   FreeBayes is a Bayesian genetic variant detector designed to find small polymorphisms, specifically SNPs (single-nucleotide polymorphisms), indels (insertions and deletions), MNPs (multi-nucleotide polymorphisms), and complex events (composite insertion and substitution events) smaller than the length of a short-read sequencing alignment.
