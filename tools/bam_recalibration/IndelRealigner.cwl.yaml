@@ -76,7 +76,7 @@ arguments:
   - valueFrom: $(inputs.input_bam_path.path.replace(/^.*[\\\/]/, '').replace(/\.[^/.]+$/, '') + '.bqsr.bam')
     position: 10
     prefix: "-o"
-  - valueFrom: 7
+  - valueFrom: "7"
     position: 11
     prefix: -compress
 
