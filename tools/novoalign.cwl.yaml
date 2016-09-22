@@ -38,6 +38,12 @@ inputs:
     inputBinding:
       position: 4
 
+  - id: readgroup
+    type: string
+    description: "Specifies the readgoup. (e.g. \"@RG\tCN:\tPL:\tID:\tSM:\tPU:\tLB:\")"
+    inputBinding:
+      position: 9
+
   - id: output_name
     type: string
     description: "Name of the output file."
@@ -64,8 +70,6 @@ arguments:
   - valueFrom: "SAM"
     position: 8
     prefix: -o
-  - valueFrom: "@RG\\tCN:CGR\\tPL:ILLUMINA\\tID:SB887769_S1_L007_HQ_paired\\tSM:SB887769\\tPU:SB887769_S1_L007_HQ_paired\\tLB:N/A"
-    position: 9
 
 description: |
   Usage:    novoalign options
