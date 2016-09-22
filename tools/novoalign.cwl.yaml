@@ -12,9 +12,7 @@ requirements:
 
 inputs:
   - id: nthreads
-    type:
-      - 'null'
-      - int
+    type: ["null", int]
     description: "Sets maximum number of threads to use. Defaults to one thread per CPU as reported by sysinfo(). This is usually the number of cores or twice the number of cores if hyper-threading is turned on. Lisenced version only. (e.g. 4)"
     inputBinding:
       position: 1
@@ -35,45 +33,10 @@ inputs:
       prefix: "-f"
 
   - id: input_read2_fastq_file
-    type:
-      - 'null'
-      - File
+    type: ["null", File]
     description: "FASTQ file for read R2 in Paired End mode"
     inputBinding:
       position: 4
-
-  - id: format
-    type: string
-    description: "Specifies a read file format. For Fastq ‘_sequence.txt’ files from Illumina Pipeline 1.3 please specify -F ILMFQ. Other values for the -F option could be found at novocraft website."
-    inputBinding:
-      position: 5
-      prefix: "-F"
-
-  - id: mode
-    type: string
-    description: "Sets mode. (e.g. PE)"
-    inputBinding:
-      position: 6
-      prefix: "-i"
-
-  - id: length
-    type: string
-    description: "Sets approximate fragment length and standard deviation. (e.g. 300,125)"
-    inputBinding:
-      position: 7
-
-  - id: output_format
-    type: string
-    description: "Specifies the report format. (e.g. SAM)"
-    inputBinding:
-      position: 8
-      prefix: "-o"
-
-  - id: readgroup
-    type: string
-    description: "Specifies the readgoup. (e.g. \"@RG\tCN:\tPL:\tID:\tSM:\tPU:\tLB:\")"
-    inputBinding:
-      position: 9
 
   - id: output_name
     type: string
@@ -89,5 +52,20 @@ outputs:
     glob: $(inputs.output_name)
 
 baseCommand: /home/ubuntu/tools/novocraft/novoalign
+arguments:
+  - valueFrom: "ILM1.8"
+    position: 5
+    prefix: -F
+  - valueFrom: "PE"
+    position: 6
+    prefix: -i
+  - valueFrom: "300,125"
+    position: 7
+  - valueFrom: "SAM"
+    position: 8
+    prefix: -o
+  - valueFrom: \"@RG\tCN:CGR\tPL:ILLUMINA\tID:SB887769_S1_L007_HQ_paired\tSM:SB887769\tPU:SB887769_S1_L007_HQ_paired\tLB:N/A\"
+    position: 9
+
 description: |
   Usage:    novoalign options
