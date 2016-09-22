@@ -38,6 +38,33 @@ inputs:
     inputBinding:
       position: 4
 
+  - id: format
+    type: string
+    description: "Specifies a read file format. For Fastq ‘_sequence.txt’ files from Illumina Pipeline 1.3 please specify -F ILMFQ. Other values for the -F option could be found at novocraft website."
+    inputBinding:
+      position: 5
+      prefix: "-F"
+
+  - id: mode
+    type: string
+    description: "Sets mode. (e.g. PE)"
+    inputBinding:
+      position: 6
+      prefix: "-i"
+
+  - id: length
+    type: string
+    description: "Sets approximate fragment length and standard deviation. (e.g. 300,125)"
+    inputBinding:
+      position: 7
+
+  - id: output_format
+    type: string
+    description: "Specifies the report format. (e.g. SAM)"
+    inputBinding:
+      position: 8
+      prefix: "-o"
+
   - id: readgroup
     type: string
     description: "Specifies the readgoup. (e.g. \"@RG\tCN:\tPL:\tID:\tSM:\tPU:\tLB:\")"
@@ -58,18 +85,5 @@ outputs:
     glob: $(inputs.output_name)
 
 baseCommand: /home/ubuntu/tools/novocraft/novoalign
-arguments:
-  - valueFrom: "ILM1.8"
-    position: 5
-    prefix: -F
-  - valueFrom: "PE"
-    position: 6
-    prefix: -i
-  - valueFrom: "300,125"
-    position: 7
-  - valueFrom: "SAM"
-    position: 8
-    prefix: -o
-
 description: |
   Usage:    novoalign options
