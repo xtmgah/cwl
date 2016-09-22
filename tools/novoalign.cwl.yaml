@@ -61,9 +61,11 @@ arguments:
     prefix: -i
   - valueFrom: "300,125"
     position: 7
-  - valueFrom: SAM \"@RG\\tCN:CGR\\tPL:ILLUMINA\\tID:SB887769_S1_L007_HQ_paired\\tSM:SB887769\\tPU:SB887769_S1_L007_HQ_paired\\tLB:N/A\"
+  - valueFrom: "SAM"
     position: 8
     prefix: -o
+  - valueFrom: @RG\\tCN:CGR\\tPL:ILLUMINA\\tID:SB887769_S1_L007_HQ_paired\\tSM:SB887769\\tPU:SB887769_S1_L007_HQ_paired\\tLB:N/A
+    position: 9
 
 description: |
   Usage:    novoalign options
